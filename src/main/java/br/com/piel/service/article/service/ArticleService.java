@@ -9,6 +9,6 @@ public interface ArticleService {
 	List<ArticleDto> searchAllArticles();
 
 	ArticleDto searchByArticle(Long id);
-	
+
 	ArticleDto saveArticle(ArticleDto article);
 }

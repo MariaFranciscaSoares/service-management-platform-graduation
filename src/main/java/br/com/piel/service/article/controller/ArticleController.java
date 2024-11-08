@@ -20,27 +20,28 @@ import br.com.piel.service.article.service.ArticleService;
 @CrossOrigin
 public class ArticleController {
 
-    ArticleService service;
+	ArticleService service;
 
-    public ArticleController(ArticleService service) {
-        this.service = service;
-    }
+	public ArticleController(ArticleService service) {
+		this.service = service;
+	}
 
-    @GetMapping("/all")
-    public ResponseEntity<List<ArticleDto>> getAllArticles() {
-        List<ArticleDto> allArticles = service.searchAllArticles();
-        return ResponseEntity.status(HttpStatus.OK).body(allArticles);
-    }
+	@GetMapping("/all")
+	public ResponseEntity<List<ArticleDto>> getAllArticles() {
+		List<ArticleDto> allArticles = service.searchAllArticles();
+		return ResponseEntity.status(HttpStatus.OK).body(allArticles);
+	}
 
-    @GetMapping("/byId/{id}")
-    public ResponseEntity<ArticleDto> getArticleById(@PathVariable("id") Long id) {
-        ArticleDto article = service.searchByArticle(id);
-        return ResponseEntity.status(HttpStatus.OK).body(article);
-    }
+	@GetMapping("/byId/{id}")
+	public ResponseEntity<ArticleDto> getArticleById(@PathVariable("id") Long id) {
+		ArticleDto article = service.searchByArticle(id);
+		return ResponseEntity.status(HttpStatus.OK).body(article);
+	}
 
-    @PostMapping("/save")
-    public ResponseEntity<ArticleDto> saveArticle(@RequestBody ArticleDto article) {
-        ArticleDto articleSave = service.saveArticle(article);
-        return ResponseEntity.status(HttpStatus.CREATED).body(articleSave);
-    }
+	@PostMapping("/save")
+	public ResponseEntity<ArticleDto> saveArticle(@RequestBody ArticleDto article) {
+		ArticleDto articleSave = service.saveArticle(article);
+		return ResponseEntity.status(HttpStatus.CREATED).body(articleSave);
+	}
+
 }
